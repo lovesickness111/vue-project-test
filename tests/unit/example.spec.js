@@ -1,5 +1,7 @@
 import { shallowMount } from '@vue/test-utils'
 import HelloWorld from '@/components/HelloWorld.vue'
+import UnitTestHelpers from '@/common/UnitTestHelpers'
+
 // Nhóm các test case
 describe('HelloWorld.vue', () => {
 
@@ -11,8 +13,9 @@ describe('HelloWorld.vue', () => {
     const wrapper = shallowMount(HelloWorld, {
       propsData: { msg }
     })
+    let h = new UnitTestHelpers(wrapper, expect)
     // assert 
-    expect(wrapper.text()).toMatch("new message")
+    h.see('new message', ".hello");
   })
 
 

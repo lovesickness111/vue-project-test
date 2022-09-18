@@ -1,6 +1,6 @@
 import { mount } from "@vue/test-utils";
 import TodoApp from "@/components/TodoApp.vue";
-// Test render component
+// Test Suite render component
 describe("TodoApp.vue", () => {
   let wrapper;
   // trước khi mỗi testcase chạy
@@ -26,19 +26,19 @@ describe("TodoApp.vue", () => {
     expect(wrapper.findAll('[data-test="todo"')).toHaveLength(1);
 
     // thực hiện điền 1 item vào ô input, phải có await để giao diện render xong
-    await wrapper.get('[data-test="input-task"').setValue("Learninig Jest");
+    await wrapper.get('[data-test="input-task"]').setValue("Learninig Jest");
+
     // bấm sự kiện click thêm (phải có await để giao diện render xong)
     await wrapper.get('[data-test="add-task"]').trigger("click");
 
     // assert khi đã add task todos
-    expect(wrapper.findAll('[data-test="todo"')).toHaveLength(2);
+    expect(wrapper.findAll('[data-test="todo"]')).toHaveLength(2);
   });
   // test tick hoàn thành 1 item
   it("should completed task ", async () => {
-    // check done
-    await wrapper.get('[data-test="checkbox-task"]').setChecked(true);
-
-    // assert khi đã check
+    // 1 tick vào check box của task
+   await wrapper.get(".wrap-checkbox").setChecked(true);
+    // expect khi check box được tick thì item task đó phải có class task-completed
     expect(wrapper.get('[data-test="todo"').classes()).toContain(
       "task-completed"
     );
