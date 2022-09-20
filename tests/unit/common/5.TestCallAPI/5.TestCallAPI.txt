@@ -1,7 +1,8 @@
 1. Mục tiêu
-Test xem với giá trị truyền vào của Props hoặc giá trị khởi tạo của Deta thì Code có chạy đúng dự định không?
+Kiểm tra axios và mock dữ liệu, Kết quả cuối cùng kiểm tra giao diện có được render hay không?
 2. Phương pháp
--
--
--
-3. Lưu ý
+- B1: xử dụng jest kiểm tra axios và mock dữ liệu trả về
+- B2: giả thời gian chờ dữ liệu, chờ dom cập nhật
+- B3: kiểm tra xem dữ liệu đã được render trên giao diện chưa và kiểm tra số lượng element được render có bằng dữ liệu mock không? Nếu bằng thì pass test
+3. Lưu ý:
+ - import flushPromises from 'flush-promises'; dùng flushPromises này để chờ dom update
