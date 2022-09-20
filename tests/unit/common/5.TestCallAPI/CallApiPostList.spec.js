@@ -1,7 +1,7 @@
 import { mount } from "@vue/test-utils";
 import axios from "axios";
-import PostList from "@/call-api/PostList.vue";
-import { nextTick } from "vue";
+import PostList from "@/test-components/5.call-api/PostList.vue";
+//import { nextTick } from "vue";
 import flushPromises from "flush-promises";
 const mockPostList = [
   { id: 1, title: "title1" },
