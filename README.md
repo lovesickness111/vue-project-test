@@ -30,6 +30,8 @@ Link Cheat Sheet: https://github.com/dekadentno/vue-unit-testing-cheat-sheet?fbc
 
 Link Project tham khảo: https://github.com/dcrystalj/vue-testing-examples?fbclid=IwAR2Rly0Ccmi9fxVq0pOKrmiKrJj0jaDNYmGxhXs9uLtBtT9hKY021k4qOKo
 
+Link vuet test course: https://github.com/alexjoverm/vue-testing-series/tree/Test-State-Computed-Properties-and-Methods-in-Vue-js-Components-with-Jest
+
 <template>
     <div>
         {{fullName}}
