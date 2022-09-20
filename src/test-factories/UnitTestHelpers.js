@@ -12,8 +12,10 @@ class UnitTestHelpers {
       let wrap = selector ? this.wrapper.find(selector) : this.wrapper
       this.expect(wrap.html()).toContain(text)
     }
-    textNotInDOM(text) {
-      this.expect(this.wrapper.html()).not.toContain(text)
+    textNotInDOM(text, selector) {
+      let wrap = selector ? this.wrapper.find(selector) : this.wrapper
+      this.expect(wrap.html()).not.toContain(text)
+
     }
     /**
      * gắn giá trị text vào input trong DOM
@@ -88,6 +90,14 @@ class UnitTestHelpers {
     hasAttribute(selector, attribute) {
       return this.expect(this.find(selector).attributes()[attribute]).toBeTruthy()
     }
+
+
+    //#region -----------TEST HÀM/ METHOD------------
+    toHaveBeenCalled(func){
+      this.expect(func).toHaveBeenCalled();
+
+    }
+    //#endregion
   }
   
   export default UnitTestHelpers

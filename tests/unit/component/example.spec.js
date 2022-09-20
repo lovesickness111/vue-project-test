@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils'
 import HelloWorld from '@/components/HelloWorld.vue'
-import UnitTestHelpers from '../common/UnitTestHelpers'
+import UnitTestHelpers from '@/test-factories/UnitTestHelpers'
 
 // Nhóm các test case
 describe('HelloWorld.vue', () => {
