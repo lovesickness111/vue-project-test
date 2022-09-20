@@ -1,5 +1,5 @@
 <template>
-    <div id="maht-app">
+    <div id="math-app">
         <div>
             <h3>Let us test your arithmetic.</h3>
             <p>What is the sum of the two numbers?</p>
@@ -15,16 +15,23 @@
 <script>
 export default {
     name: 'App',
+    created() {
+        this.nvcuong1 = {
+            name: 'nvcuong1',
+        };
+    },
     data() {
         return {
             x1: Math.ceil(Math.random() * 100),
             x2: Math.ceil(Math.random() * 100),
             guess: "",
-            message: ""
+            message: "",
+            nvcuong1: null,
         }
     },
     methods: {
         check() {
+            this.nvcuong1.name.trim();
             if (this.x1 + this.x2 === parseInt(this.guess)) {
                 this.message = "SUCCESS!"
             } else {

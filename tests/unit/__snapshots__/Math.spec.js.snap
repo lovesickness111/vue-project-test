@@ -2,7 +2,7 @@
 
 exports[`Mounted App renders correctly 1`] = `
 <div
-  id="maht-app"
+  id="math-app"
 >
   <div>
     <h3>
@@ -17,7 +17,7 @@ exports[`Mounted App renders correctly 1`] = `
       class="inline"
     >
       <p>
-        37 + 99 =
+        37 + 100 =
       </p>
        
       <input />

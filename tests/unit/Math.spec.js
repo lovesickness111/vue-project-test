@@ -51,10 +51,16 @@ describe("Mounted App", () => {
             data() {
                 return {
                     x1: 37,
-                    x2: 99
+                    x2: 100
                 }
             }
         })
         expect(wrapper.element).toMatchSnapshot()
     })
+
+    it('test message', () => {
+        const wrapper = mount(App);
+        wrapper.vm.check();
+        expect(wrapper.vm.nvcuong1.name).toBe('a');
+    });
 });
