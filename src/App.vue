@@ -1,51 +1,39 @@
 <template>
   <div id="app">
-    <new-task @reload="addTask" />
-    <task-list :tasks="tasks"></task-list>
+    <nav>
+      <router-link to="/">TodoApp PDXuan</router-link> |
+      <router-link to="/about">About</router-link> |
+      <router-link to="/todo">Todo App - NVCuong</router-link> |
+      <router-link to="/math">Math App</router-link>
+    </nav>
+    <router-view />
   </div>
 </template>
 
 <script>
-import TaskList from './components/TaskList.vue';
-import NewTask from './components/NewTask.vue';
 
 export default {
   name: "app",
-  components: {
-    NewTask,
-    TaskList
-  },
-  data() {
-    return {
-      tasks: [],
-      newTask: { id: 1, text: '', isCompleted: false }
-    }
-  },
-  methods: {
-    addTask(name) {
-      this.tasks.push({ id: this.tasks.length + 1, text: name, isCompleted: false })
-    }
-  }
 };
 </script>
 
-<style>
-* {
-  margin: 0px;
-  padding: 0px;
-}
-
-body {
-  height: 100vh;
-  overflow: hidden;
-}
-
+<style >
 #app {
-  display: flex;
-  align-items: center;
-  background: #d0dcdf;
-  padding-top: 30px;
-  height: 100%;
-  flex-direction: column;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  height: 100vh;
+}
+nav {
+  padding: 30px;
+}
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>

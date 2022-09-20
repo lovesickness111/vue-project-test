@@ -23,6 +23,9 @@ export default {
     text-decoration: line-through;
 }
 
+.task-item {
+    display: flex;
+}
 .task-checkbox {
     margin-right: 8px;
     cursor: pointer;
