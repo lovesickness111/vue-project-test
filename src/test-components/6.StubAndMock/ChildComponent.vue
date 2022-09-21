@@ -22,7 +22,7 @@ export default {
     },
     methods:{
         afterGetAPI(res){
-            this.fullName = res.data;
+            this.fullName = res.data ? res.data : "text default";
         }
     }
 }

@@ -2,12 +2,15 @@ import { shallowMount, mount } from "@vue/test-utils";
 import ChildComponent from "@/test-components/6.StubAndMock/ChildComponent.vue";
 import UnitTestHelpers from "@/test-factories/UnitTestHelpers";
 import { nextTick } from "vue";
-import flushPromises from 'flush-promises';
-const mockGetAPI = jest.fn();
+import flushPromises from "flush-promises";
+const mockGetAPI = jest.fn((msg)=>{
+  return msg;
+});
 jest.mock("axios", () => ({
   get: () => {
-    mockGetAPI();
-    return Promise.resolve("child component value from API")},
+    mockGetAPI("hello");
+    return Promise.resolve("child component value from mock API");
+  },
 }));
 
 // Nhóm các test case
@@ -18,26 +21,30 @@ describe("Test component ChildComponent", () => {
     const wrapper = mount(ChildComponent);
 
     let helper = new UnitTestHelpers(wrapper, expect);
-    //await nextTick();
-    // log ra thử xem ông này render ra cái gì
-    //console.log(wrapper.html());
+
     // assert
 
     // không có ông con
     helper.domHasLength(".full-name-child", 1);
 
-    helper.toHaveBeenCalled(mockGetAPI);
-    
-    wrapper.vm.$nextTick(() => {
-      // helper.textContainInDOM(
-      //   "child component value from API",
-      //   ".full-name-child"
-      // );
-      // eslint-disable-next-line no-undef
-      //done()
-    })
-  // expect(wrapper.vm.afterGetAPI).toHaveBeenCalledTimes(1);
-   
-    
+    expect(mockGetAPI).toBeCalledWith("hello");
+    //helper.toHaveBeenCalled(mockGetAPI);
+
+    const spy = jest.spyOn(wrapper.vm, "afterGetAPI");
+    await nextTick();
+
+    expect(wrapper.vm.afterGetAPI).toHaveBeenCalledTimes(1);
+    // helper.textContainInDOM(
+    //     "child component value from mock API",
+    //     ".full-name-child"
+    //   );
+  });
+
+  it("Check hàm afterGetAPI được gọi sau khi mount", async () => {
+    const wrapper = mount(ChildComponent);
+
+    const spy = jest.spyOn(wrapper.vm, "afterGetAPI");
+    await nextTick();
+    expect(wrapper.vm.afterGetAPI).toBeCalled();
   });
 });
