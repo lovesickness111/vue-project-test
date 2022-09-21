@@ -18,6 +18,9 @@ npm run build
 ### Run Unit Test
 ```
 npm run test:unit
+"test:unit-file-only": "vue-cli-service test:unit --testPathPattern=Rege_Tên_File_muốn_test",
+"test:unit-suite-only": "vue-cli-service test:unit --testNamePattern=Regex_Test_Suite",
+
 ```
 Vấn đề: 
 1> Lỗi nhiều trong FrontEnd là lỗi quên check null, check undefined => làm thế nào (Tìm extension)

@@ -1,16 +1,16 @@
 import { shallowMount } from "@vue/test-utils";
-import HelloWorld from "@/components/HelloWorld.vue";
+import TestPropsAndData from "@/test-components/1.TestPropsAndData/TestPropsAndData.vue";
 import UnitTestHelpers from '@/test-factories/UnitTestHelpers'
 
 // Nhóm các test case
-describe("HelloWorld.vue", () => {
+describe("TestPropsAndData.vue", () => {
   // Mô tả test case và chi tiết ntn
   it("renders props.msg when passed", () => {
     // set up trước khi test
 
     // Có 2 cách để gắn giá trị cho props hoặc Data trong component
-    // Cach1:  mount component HelloWorld.vue với option là gán cho props msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
+    // Cach1:  mount component TestPropsAndData.vue với option là gán cho props msg = 'new message'
+    const wrapper = shallowMount(TestPropsAndData, {
       propsData: { msg: "new message" },
     });
     // Cách 2: gán prop với hàm setprop
