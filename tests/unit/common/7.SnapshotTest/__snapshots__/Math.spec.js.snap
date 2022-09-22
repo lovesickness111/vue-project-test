@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mounted App renders correctly 1`] = `
+<div
+  id="math-app"
+>
+  <div>
+    <h3>
+      Let us test your arithmetic.
+    </h3>
+     
+    <p>
+      What is the sum of the two numbers?
+    </p>
+     
+    <div
+      class="inline"
+    >
+      <p>
+        37 + 100 =
+      </p>
+       
+      <input />
+       
+      <button>
+        Check Answer
+      </button>
+    </div>
+     
+    <button>
+      Refresh
+    </button>
+     
+    <p>
+      
+    </p>
+  </div>
+</div>
+`;
