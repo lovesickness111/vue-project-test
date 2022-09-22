@@ -6,6 +6,7 @@ import flushPromises from "flush-promises";
 const mockGetAPI = jest.fn((msg)=>{
   return msg;
 });
+
 jest.mock("axios", () => ({
   get: () => {
     mockGetAPI("hello");
@@ -25,15 +26,15 @@ describe("Test component ChildComponent", () => {
     // assert
 
     // không có ông con
-    helper.domHasLength(".full-name-child", 1);
+   // helper.domHasLength(".full-name-child", 1);
 
-    expect(mockGetAPI).toBeCalledWith("hello");
-    //helper.toHaveBeenCalled(mockGetAPI);
+    //expect(mockGetAPI).toBeCalledWith("hello");
+    helper.toHaveBeenCalled(mockGetAPI);
 
-    const spy = jest.spyOn(wrapper.vm, "afterGetAPI");
-    await nextTick();
+    // const spy = jest.spyOn(wrapper.vm, "afterGetAPI");
+    // await nextTick();
 
-    expect(wrapper.vm.afterGetAPI).toHaveBeenCalledTimes(1);
+    // expect(wrapper.vm.afterGetAPI).toHaveBeenCalledTimes(1);
     // helper.textContainInDOM(
     //     "child component value from mock API",
     //     ".full-name-child"

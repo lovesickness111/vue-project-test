@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "test:unit-file-only": "vue-cli-service test:unit --testPathPattern=MockAPIAtChildComponent.spec.js",
+    "test:unit-file-only": "vue-cli-service test:unit --testPathPattern=CallApiPostList.spec",
     "test:unit-suite-only": "vue-cli-service test:unit --testNamePattern=Test component ChildComponent",
 
     "lint": "vue-cli-service lint"
