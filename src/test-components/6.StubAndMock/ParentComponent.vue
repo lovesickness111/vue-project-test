@@ -1,7 +1,6 @@
 <template>
     <div class="full-name">
         {{fullName}}
-
         <div>
             <ChildComponent></ChildComponent>
         </div>
@@ -16,7 +15,7 @@ export default {
     name: "ParentComponent",
     data() {
         return {
-            fullName: "parent component"
+            fullName: "hihi component"
         };
     },
     components: { ChildComponent }

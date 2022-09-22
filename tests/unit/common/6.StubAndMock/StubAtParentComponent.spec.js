@@ -5,12 +5,12 @@ import UnitTestHelpers from "@/test-factories/UnitTestHelpers";
 // Nhóm các test case
 describe("Test component ParentComponent", () => {
   // Mô tả test case và chi tiết ntn
-  it("renders component ParentComponent.vue mà không render ChildComponent.vue", () => {
+  it("renders component ParentComponent.vue mà không render ChildComponent.vue", async() => {
     // act
     const wrapper = mount(ParentComponent, {
       stubs: {
-        ChildComponent: true, // cách 1, component con sẽ ko render ra, chỉ hiện dưới dạng 1 tag <childcomponent-stub></childcomponent-stub>
-        //{ template: "<span/>" } // cách 2, fake template của component con
+        //ChildComponent: true, // cách 1, component con sẽ ko render ra, chỉ hiện dưới dạng 1 tag <childcomponent-stub></childcomponent-stub>
+        ChildComponent :{ template: "<nvcuong1/>" } // cách 2, fake template của component con
       },
     });
 
@@ -18,11 +18,12 @@ describe("Test component ParentComponent", () => {
 
     // log ra thử xem ông này render ra cái gì
     console.log(wrapper.html());
+    await wrapper.setData({fullName: "parent-component"});
     // assert
 
-    helper.textContainInDOM('parent component', ".full-name");
+    helper.textContainInDOM('parent-component');
     // không có ông con
-    helper.domHasLength(".full-name-child", 0);
+   // helper.domHasLength(".full-name-child", 0);
 
 
   });

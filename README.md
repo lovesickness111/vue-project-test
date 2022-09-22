@@ -35,6 +35,12 @@ Link Project tham khảo: https://github.com/dcrystalj/vue-testing-examples?fbcl
 
 Link vuet test course: https://github.com/alexjoverm/vue-testing-series/tree/Test-State-Computed-Properties-and-Methods-in-Vue-js-Components-with-Jest
 
+1. hoàn thiện project demo theo đúng chuẩn và tổ chức đào tạo (Món này nhóm mình đang bị trễ Deadline), Co extension nao ho tro check null ko?
+
+2. Bàn về kế hoạch giải ngân giải thưởng nóng từ vòng 1 (2 triệu đồng) => hoa quả + coffe cho mentor
+
+3. Anh đề xuất bầu thêm chức vụ Phó nhóm, phòng trường hợp sắp tới anh có nhiều việc thì Phó nhóm sẽ hỗ trợ => Vote Tuấn Nam (Chốt các biên bản họp, book lịch họp chuyên môn tối đa 2 lần/ tuần, lên ý tưởng slide, giao việc cho anh em,...) . Việt Cường phụ trách triển khai chuyên môn (Đào tạo, hỗ trợ thành viên viết test, dựng doc, video demo, giao việc...)
+
 <template>
     <div>
         {{fullName}}

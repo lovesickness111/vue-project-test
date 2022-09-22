@@ -1,5 +1,6 @@
 <template>
     <div class="full-name-child">
+        parent-component
         {{fullName}}
     </div>
 </template>
