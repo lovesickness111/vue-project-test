@@ -6,15 +6,32 @@ import UnitTestHelpers from '@/test-factories/UnitTestHelpers'
 describe("TestPropsAndData.vue", () => {
   // Mô tả test case và chi tiết ntn
   it("renders props.msg when passed", () => {
-    // set up trước khi test
-
-    // Có 2 cách để gắn giá trị cho props hoặc Data trong component
-    // Cach1:  mount component TestPropsAndData.vue với option là gán cho props msg = 'new message'
+    /**
+    * Fake data, props có 2 cách:
+    * + Fake qua Arguments {Object} options của mount() hoặc shallowMount()
+    * + Fake qua Methods của Wrapper => wrapper.setData({Object} data), wrapper.setProps({Object} props)
+    */
     const wrapper = shallowMount(TestPropsAndData, {
       propsData: { msg: "new message" },
+      data() {
+        return {
+          show: true
+        }
+      }
     });
-    // Cách 2: gán prop với hàm setprop
-    wrapper.setProps({ msg: "new message" });
+    // await wrapper.setProps({ msg: "new message" });
+    // await wrapper.setData({ show: true });
+
+    /**
+    * Expect 2 cách:
+    * + Thông qua Methods của wrapper là props() đối với prop, data không có methods
+    * + Thông qua Properties của wapper là vm đổi với cả data và prop
+    */
+    expect(wrapper.vm.msg).toBe('new message')
+    expect(wrapper.vm.show).toBe(true)
+    // expect(wrapper.props().msg).toBe('new message')
+    // expect(wrapper.props('msg')).toBe('new message')
+
     // ------------------------Test thử giao diện có render ra msg nội dung là "'new message'" hay không----------------------------------------
     let h = new UnitTestHelpers(wrapper, expect);
     // assert
