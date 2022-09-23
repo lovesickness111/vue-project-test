@@ -24,7 +24,7 @@ const routes = [
   {
     path: '/math',
     name: 'math',
-    component: () => import('@/components/MathApp.vue')
+    component: () => import('@/test-components/7.SnapShotTest/MathApp.vue')
   }
 ]
 
