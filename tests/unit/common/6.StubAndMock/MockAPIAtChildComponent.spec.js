@@ -6,7 +6,6 @@ import flushPromises from "flush-promises";
 const mockGetAPI = jest.fn((msg)=>{
   return msg;
 });
-
 jest.mock("axios", () => ({
   get: () => {
     mockGetAPI("hello");
