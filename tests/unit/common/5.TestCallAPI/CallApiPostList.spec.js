@@ -10,7 +10,7 @@ const mockPostList = [
 
 // Following lines tell Jest to mock any call to `axios.get`
 // and to return `mockPostList` instead
-jest.spyOn(axios, "get").mockResolvedValue(mockPostList);
+jest.spyOn(axios, "post").mockResolvedValue(mockPostList);
 describe("Test call api", () => {
   it("click button call api", async () => {
     const wrapper = mount(PostList)
@@ -19,8 +19,11 @@ describe("Test call api", () => {
     await nextTick()
     // Let's assert that we've called axios.get the right amount of times and
     // with the right parameters.
-    expect(axios.get).toHaveBeenCalledTimes(1)
-    expect(axios.get).toHaveBeenCalledWith('/api/posts')
+    expect(axios.post).toHaveBeenCalledTimes(1);
+    // get
+    //expect(axios.get).toHaveBeenCalledWith('/api/posts')
+    // post
+    expect(axios.post).toHaveBeenCalledWith('/api/posts', {"id": "111"})
   
     // Wait until the DOM updates.
     await nextTick()
