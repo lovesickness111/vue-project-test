@@ -20,7 +20,10 @@ export default {
   },
   methods: {
     async getPosts() {
-      this.posts = await axios.get("/api/posts");
+      // get
+      //this.posts = await axios.get("/api/posts");
+      // post
+      this.posts = await axios.post("/api/posts", {"id": "111"});
     },
   },
 };
