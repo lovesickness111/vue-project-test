@@ -8,15 +8,27 @@
     "test:unit": "vue-cli-service test:unit",
     "test:unit-file-only": "vue-cli-service test:unit --testPathPattern=MockAPIAtChildComponent.spec.js",
     "test:unit-suite-only": "vue-cli-service test:unit --testNamePattern=Test component ChildComponent",
-
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@progress/kendo-drawing": "^1.17.1",
+    "@progress/kendo-licensing": "^1.2.2",
+    "@progress/kendo-theme-default": "^5.8.1",
+    "@progress/kendo-vue-buttons": "^3.6.3",
+    "@progress/kendo-vue-dialogs": "^3.6.3",
+    "@progress/kendo-vue-dropdowns": "^3.6.3",
+    "@progress/kendo-vue-editor": "^3.6.3",
+    "@progress/kendo-vue-inputs": "^3.6.3",
+    "@progress/kendo-vue-intl": "^3.6.3",
+    "@progress/kendo-vue-layout": "^3.6.3",
+    "@progress/kendo-vue-pdf": "^3.6.3",
+    "@progress/kendo-vue-popup": "^3.6.3",
+    "@progress/kendo-vue-progressbars": "^3.6.3",
     "axios": "^0.27.2",
     "core-js": "^3.8.3",
+    "flush-promises": "^1.0.2",
     "vue": "^2.6.14",
-    "vue-router": "^3.5.1",
-    "flush-promises": "^1.0.2"
+    "vue-router": "^3.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
