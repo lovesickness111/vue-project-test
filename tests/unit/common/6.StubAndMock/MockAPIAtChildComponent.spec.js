@@ -59,7 +59,6 @@ describe("Test component ChildComponent", () => {
       return false;
     });
     // act
-    const wrapper = mount(ChildComponent);
 
     let helper = new UnitTestHelpers(wrapper, expect);
 
