@@ -11,10 +11,10 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'about',
+    path: '/newpost',
+    name: 'newpost',
    
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () => import('../test-components/5.call-api/AddPostNew.vue')
   },
   {
     path: '/todo',
@@ -24,7 +24,7 @@ const routes = [
   {
     path: '/math',
     name: 'math',
-    component: () => import('@/components/MathApp.vue')
+    component: () => import('@/test-components/7.SnapShotTest/MathApp.vue') 
   }
 ]
 

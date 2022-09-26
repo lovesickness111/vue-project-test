@@ -2,7 +2,7 @@
   <div id="app">
     <nav>
       <router-link to="/">TodoApp PDXuan</router-link> |
-      <router-link to="/about">About</router-link> |
+      <router-link to="/newpost">Soạn thảo bài đăng</router-link> |
       <router-link to="/todo">Todo App - NVCuong</router-link> |
       <router-link to="/math">Math App</router-link>
     </nav>
