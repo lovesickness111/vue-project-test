@@ -16,7 +16,8 @@ describe("TestThemCongViec", () => {
     input.setValue("write unit test");
     wrapper.find("button").trigger("click"); // lần đầu emit ra giá trị new task
 
-    wrapper.find("button").trigger("click"); // Lần 2 để test xem đã clear text input chưa
+  
+
 
     // 2 bấm click thêm = Action
     //await wrapper.find("button").trigger("click"); // lần đầu emit ra giá trị new task
