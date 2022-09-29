@@ -7,30 +7,18 @@ describe("Test them cong viec", () => {
     const wrapper = mount(NewTask);
     // 1 nhập teen công việc = Arrange
 
-  //Set tên task mới là : write unit test
-  const input = wrapper.find('input');
-  input.setValue("write unit test");
-    //Check xem có event addNewTask không 
-  expect(wrapper.emitted()).toHaveProperty('addNewTask');
-  wrapper.find('button').trigger('click'); // lần đầu emit ra giá trị new task
-  wrapper.find('button').trigger('click'); // Lần 2 để test xem đã clear text input chưa
+    // 2 bấm click thêm = Action
 
+    // 3 kiểm tra = Assert
 
-  
-  const addNewTask = wrapper.emitted('addNewTask');
-
-  //Check xem có emit ra đúng task name
-  console.log(wrapper.emitted());
-
-  expect(addNewTask[0]).toEqual(['write unit test'])
+    // console.log(wrapper.vm);
 
     //Set tên task mới là : write unit test
     const input = wrapper.find("input");
     input.setValue("write unit test");
     wrapper.find("button").trigger("click"); // lần đầu emit ra giá trị new task
 
-  
-
+    wrapper.find("button").trigger("click"); // Lần 2 để test xem đã clear text input chưa
 
     //Check xem có event addNewTask không
     expect(wrapper.emitted()).toHaveProperty("addNewTask");
