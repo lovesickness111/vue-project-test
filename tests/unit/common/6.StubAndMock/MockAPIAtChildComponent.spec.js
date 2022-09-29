@@ -8,11 +8,6 @@ const mockGetAPI = jest.fn((msg) => {
   return msg;
 });
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> c3f9b47 (sua route loi + demo mock function)
 jest.mock("axios", () => ({
   get: () => {
     mockGetAPI("hello");

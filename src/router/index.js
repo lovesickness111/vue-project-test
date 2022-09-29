@@ -24,7 +24,11 @@ const routes = [
   {
     path: '/math',
     name: 'math',
+<<<<<<< HEAD
     component: () => import('@/test-components/7.SnapShotTest/MathApp.vue') 
+=======
+    component: () => import('@/test-components/7.SnapShotTest/MathApp.vue')
+>>>>>>> 3e47b0d (sua route loi)
   }
 ]
 
