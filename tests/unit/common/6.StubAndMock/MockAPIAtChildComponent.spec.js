@@ -8,6 +8,11 @@ const mockGetAPI = jest.fn((msg) => {
   return msg;
 });
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> c3f9b47 (sua route loi + demo mock function)
 jest.mock("axios", () => ({
   get: () => {
     mockGetAPI("hello");
@@ -59,31 +64,6 @@ describe("Test component ChildComponent", () => {
       return false;
     });
     // act
-
-    let helper = new UnitTestHelpers(wrapper, expect);
-
-    // assert
-
-    // không có ông con
-   // helper.domHasLength(".full-name-child", 1);
-
-    //expect(mockGetAPI).toBeCalledWith("hello");
-    helper.toHaveBeenCalled(mockGetAPI);
-
-    // const spy = jest.spyOn(wrapper.vm, "afterGetAPI");
-    // await nextTick();
-
-    // expect(wrapper.vm.afterGetAPI).toHaveBeenCalledTimes(1);
-    // helper.textContainInDOM(
-    //     "child component value from mock API",
-    //     ".full-name-child"
-    //   );
-  });
-
-  it("Check hàm afterGetAPI được gọi sau khi mount", async () => {
-    const wrapper = mount(ChildComponent);
-
-    const spy = jest.spyOn(wrapper.vm, "afterGetAPI");
     await nextTick();
     
     expect(wrapper.vm.afterGetAPI).toBeCalled();
