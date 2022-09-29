@@ -1,25 +1,21 @@
 import { mount } from "@vue/test-utils";
 import NewTask from "@/components/NewTask";
-import { nextTick } from "vue";
 
-describe("Test them cong viec", () => {
-  test("test them va hien thi cong viec", () => {
+describe("TestThemCongViec", () => {
+  test("test them va hien thi cong viec binh thuong", async () => {
     const wrapper = mount(NewTask);
+    // debugger;
+
     // 1 nhập teen công việc = Arrange
-
-    // 2 bấm click thêm = Action
-
-    // 3 kiểm tra = Assert
-
-    // console.log(wrapper.vm);
+    const input = wrapper.find("input");
 
     //Set tên task mới là : write unit test
-    const input = wrapper.find("input");
     input.setValue("write unit test");
-    wrapper.find("button").trigger("click"); // lần đầu emit ra giá trị new task
 
-    wrapper.find("button").trigger("click"); // Lần 2 để test xem đã clear text input chưa
-
+    // 2 bấm click thêm = Action
+    //await wrapper.find("button").trigger("click"); // lần đầu emit ra giá trị new task
+    wrapper.vm.addNewTask();
+    // 3 kiểm tra = Assert
     //Check xem có event addNewTask không
     expect(wrapper.emitted()).toHaveProperty("addNewTask");
 
@@ -28,21 +24,26 @@ describe("Test them cong viec", () => {
     //Check xem có emit ra đúng task name
     expect(wrapper.emitted()).toHaveProperty("addNewTask");
     expect(addNewTask[0]).toEqual(["write unit test"]);
-
-    //Check xem sau khi thêm mới đã clear text input chưa
-    expect(addNewTask[1]).toEqual([""]);
   });
-
-  test("test khi click button thi ham addNewTask co duoc goi khong", async () => {
+  test("test them cong viec bi null", async () => {
     const wrapper = mount(NewTask);
-    const spy = jest.spyOn(wrapper.vm, "addNewTask");
+    jest.spyOn(wrapper.vm, "inValidTask");
+    wrapper.vm.checkIsNullTask = jest.fn(() => {
+      return true;
+    });
+    // debugger;
+
+    // 1 nhập teen công việc = Arrange
+    const input = wrapper.find("input");
 
     //Set tên task mới là : write unit test
-    const input = wrapper.find("input");
-    await input.setValue("write unit test nvcuong1");
+    input.setValue("write unit test");
+
+    // 2 bấm click thêm = Action
     await wrapper.find("button").trigger("click"); // lần đầu emit ra giá trị new task
 
- 
-    expect(wrapper.vm.addNewTask).toBeCalled();
+    // 3 kiểm tra = Assert
+    //Check xem có gọi vào hàm inValidTask ko
+    expect(wrapper.vm.inValidTask).toBeCalled();
   });
 });

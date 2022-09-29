@@ -34,7 +34,7 @@ export default {
       }
     },
     checkIsNullTask() {
-      return true;
+      return !this.newTaskText || this.newTaskText.trim() == "";
     },
     emitTask() {
       this.$emit("addNewTask", this.newTaskText);
