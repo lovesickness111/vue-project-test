@@ -4,13 +4,19 @@ import NewTask from "@/components/NewTask";
 describe("TestThemCongViec", () => {
   test("test them va hien thi cong viec binh thuong", async () => {
     const wrapper = mount(NewTask);
-    // debugger;
-
     // 1 nhập teen công việc = Arrange
-    const input = wrapper.find("input");
+
+    // 2 bấm click thêm = Action
+
+    // 3 kiểm tra = Assert
+
+    // console.log(wrapper.vm);
 
     //Set tên task mới là : write unit test
     input.setValue("write unit test");
+    wrapper.find("button").trigger("click"); // lần đầu emit ra giá trị new task
+
+    wrapper.find("button").trigger("click"); // Lần 2 để test xem đã clear text input chưa
 
     // 2 bấm click thêm = Action
     //await wrapper.find("button").trigger("click"); // lần đầu emit ra giá trị new task
