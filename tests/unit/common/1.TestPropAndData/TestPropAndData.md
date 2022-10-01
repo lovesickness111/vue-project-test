@@ -1,15 +1,14 @@
+I. Props & Data 
+
 1. Mục tiêu
-Test xem với giá trị truyền vào của Props hoặc giá trị khởi tạo của Deta thì Code có chạy đúng dự định không?
+- Test xem với giá trị truyền vào của Props hoặc giá trị khởi tạo của Deta thì Code có chạy đúng dự định không?
 
 2. Phương pháp
 - B1: mount component với option truyển vào (prop hoặc data)
-- B2: Kiểm tra với (prop hoặc data) truyền vào thì component có nhận được và render theo (prop hoặc data) đúng hay không?
--
+- B2: Kiểm tra với (prop hoặc data) truyền vào thì component có nhận được và render theo (prop hoặc data) đúng hay không? 
+
 3. Lưu ý
 Có 2 cách Set giá trị cho (prop hoặc data)
-- Cách 1: set cùng hàm mount: 
-const wrapper = shallowMount(HelloWorld, {
-      propsData: { msg: "new message" },
-    });
-
-- cách 2: dùng hàm (setProps hoặc setData)  ví dụ: wrapper.setProps({ msg: "new message" }); 
+- Cách 1: Arguments {Object} options của mount() hoặc shallowMount() 
+- Cách 2: Dùng hàm (setProps hoặc setData)  ví dụ: wrapper.setProps({ msg: "new message" });  
+ 
