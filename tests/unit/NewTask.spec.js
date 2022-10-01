@@ -1,7 +1,7 @@
 import { mount } from "@vue/test-utils";
 import NewTask from "@/components/NewTask";
 
-describe("TestThemCongViec", () => {
+describe("TestThemCongViec Critical", () => {
   test("test them va hien thi cong viec binh thuong", async () => {
     const wrapper = mount(NewTask);
     // 1 nhập teen công việc = Arrange
@@ -20,8 +20,8 @@ describe("TestThemCongViec", () => {
 
 
     // 2 bấm click thêm = Action
-    //await wrapper.find("button").trigger("click"); // lần đầu emit ra giá trị new task
-    wrapper.vm.addNewTask();
+    await wrapper.find("button").trigger("click"); // lần đầu emit ra giá trị new task
+    //wrapper.vm.addNewTask();
     // 3 kiểm tra = Assert
     //Check xem có event addNewTask không
     expect(wrapper.emitted()).toHaveProperty("addNewTask");
@@ -41,10 +41,7 @@ describe("TestThemCongViec", () => {
     // debugger;
 
     // 1 nhập teen công việc = Arrange
-    const input = wrapper.find("input");
-
-    //Set tên task mới là : write unit test
-    input.setValue("write unit test");
+    wrapper.vm.newTaskText = "nvcuong9"
 
     // 2 bấm click thêm = Action
     await wrapper.find("button").trigger("click"); // lần đầu emit ra giá trị new task

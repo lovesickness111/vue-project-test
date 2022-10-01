@@ -3,7 +3,7 @@ import NewTask from "@/components/NewTask";
 import { nextTick } from "vue";
 
 describe("Test them cong viec", () => {
-  test("test khi click button thi ham addNewTask co duoc goi khong", async () => {
+  test("Ví dụ 1. test khi click button thi ham addNewTask co duoc goi khong", async () => {
     const wrapper = mount(NewTask);
     const spy = jest.spyOn(wrapper.vm, "addNewTask");
 
@@ -15,7 +15,7 @@ describe("Test them cong viec", () => {
     expect(wrapper.vm.addNewTask).toBeCalled();
   });
 
-  test("test ham addNewTask co validate khi newTaskText rong hay khong", async () => {
+  test("Ví dụ 2. test ham addNewTask co validate khi newTaskText rong hay khong", async () => {
     const wrapper = mount(NewTask);
 
     const spy = jest.spyOn(wrapper.vm, "addNewTask");
@@ -28,7 +28,7 @@ describe("Test them cong viec", () => {
     expect(wrapper.vm.checkIsNullTask).toBeCalled();
   });
 
-  test("test ham addNewTask co validate khi newTaskText rong hay khong", async () => {
+  test("Ví dụ 3.test ham addNewTask co validate khi newTaskText rong hay khong", async () => {
     const wrapper = mount(NewTask);
     const spy = jest.spyOn(wrapper.vm, "emitTask");
     const spyOn1 = jest.spyOn(wrapper.vm, "checkIsNullTask");

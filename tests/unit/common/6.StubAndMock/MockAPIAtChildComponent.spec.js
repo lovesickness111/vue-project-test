@@ -16,7 +16,7 @@ jest.mock("axios", () => ({
 }));
 
 // Nhóm các test case
-describe("Test component ChildComponent", () => {
+describe("Test component ChildComponent Critical", () => {
   // Mô tả test case và chi tiết ntn
   // it("renders component ChildComponent.vue với kết quả mock", async () => {
   //   // act
