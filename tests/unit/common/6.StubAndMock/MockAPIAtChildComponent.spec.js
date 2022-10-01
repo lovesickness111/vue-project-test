@@ -16,7 +16,7 @@ jest.mock("axios", () => ({
 }));
 
 // Nhóm các test case
-describe("Test component ChildComponent", () => {
+describe("Test component ChildComponent Critical", () => {
   // Mô tả test case và chi tiết ntn
   // it("renders component ChildComponent.vue với kết quả mock", async () => {
   //   // act
@@ -59,6 +59,32 @@ describe("Test component ChildComponent", () => {
       return false;
     });
     // act
+    const wrapper = mount(ChildComponent);
+
+    let helper = new UnitTestHelpers(wrapper, expect);
+
+    // assert
+
+    // không có ông con
+   // helper.domHasLength(".full-name-child", 1);
+
+    //expect(mockGetAPI).toBeCalledWith("hello");
+    helper.toHaveBeenCalled(mockGetAPI);
+
+    // const spy = jest.spyOn(wrapper.vm, "afterGetAPI");
+    // await nextTick();
+
+    // expect(wrapper.vm.afterGetAPI).toHaveBeenCalledTimes(1);
+    // helper.textContainInDOM(
+    //     "child component value from mock API",
+    //     ".full-name-child"
+    //   );
+  });
+
+  it("Check hàm afterGetAPI được gọi sau khi mount", async () => {
+    const wrapper = mount(ChildComponent);
+
+    const spy = jest.spyOn(wrapper.vm, "afterGetAPI");
     await nextTick();
     
     expect(wrapper.vm.afterGetAPI).toBeCalled();

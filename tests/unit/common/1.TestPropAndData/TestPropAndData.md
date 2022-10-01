@@ -8,7 +8,11 @@ I. Props & Data
 - B2: Kiểm tra với (prop hoặc data) truyền vào thì component có nhận được và render theo (prop hoặc data) đúng hay không? 
 
 3. Lưu ý
-Có 2 cách Set giá trị cho (prop hoặc data)
-- Cách 1: Arguments {Object} options của mount() hoặc shallowMount() 
-- Cách 2: Dùng hàm (setProps hoặc setData)  ví dụ: wrapper.setProps({ msg: "new message" });  
- 
+Có 3 cách Set giá trị cho (prop hoặc data)
+- Cách 1: set cùng hàm mount/shallowMount: 
+const wrapper = shallowMount(HelloWorld, {
+      propsData: { msg: "new message" },
+    });
+
+- cách 2: dùng hàm (setProps hoặc setData)  ví dụ: wrapper.setProps({ msg: "new message" }); 
+- cách 3: Set thẳng giá trị vào Props hoặc Data (ví dụ: wrapper.vm.propName = "giá trị A")
