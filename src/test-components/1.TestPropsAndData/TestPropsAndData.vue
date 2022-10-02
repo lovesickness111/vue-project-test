@@ -1,24 +1,41 @@
 <template>
-    <div class="hello">
-        {{msg}}
+    <div>
+        <form action="">
+            <input type="text" v-model="inputValue">
+            <span class="reversed">{{ reversedInput }}</span>
+        </form>
     </div>
 </template>
 
-<script>
-// import { defineComponent } from '@vue/composition-api'
-
+<script> 
 export default {
     name: "TestPropsAndData",
     props: {
-        msg: {
-            type: String,
-            default: 'this is prop'
+        reversed: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
         return {
-            fullName: "TestPropsAndData component"
+            inputValue: ""
         }
     },
+
+    computed: {
+        reversedInput() {
+            return this.reversed ?
+                this.inputValue.split("").reverse().join("") :
+                this.inputValue
+        }
+    },
+
+    watch: {
+        inputValue(newVal, oldVal) {
+            if (newVal.trim().length && newVal !== oldVal) {
+                console.log(newVal)
+            }
+        }
+    }
 }
 </script>

@@ -1,7 +1,21 @@
 <template>
   <div id="todo-app">
+
+    <slot name="typeOfTask" />
+
     <new-task @addNewTask="addTask" />
     <task-list :tasks="tasks"></task-list>
+
+    <slot name="taskDisplay" />
+
+    <div class="scoped">
+      <slot name="scoped" v-bind="{description}" />
+    </div>
+
+    <slot />
+
+
+
   </div>
 </template>
 
@@ -18,7 +32,8 @@ export default {
   data() {
     return {
       tasks: [],
-      newTask: { id: 1, text: '', isCompleted: false }
+      newTask: { id: 1, text: '', isCompleted: false },
+      description: "one task selected"
     }
   },
   methods: {

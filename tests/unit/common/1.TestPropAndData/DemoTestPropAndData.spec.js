@@ -1,11 +1,14 @@
 import { shallowMount } from "@vue/test-utils";
-import TestPropsAndData from "@/test-components/1.TestPropsAndData/TestPropsAndData.vue";
-import UnitTestHelpers from '@/test-factories/UnitTestHelpers'
+import TestPropsAndData from "@/test-components/1.TestPropsAndData/TestPropsAndData.vue"; 
 
-// Nhóm các test case
-describe("TestPropsAndData.vue", () => {
+describe("DemoTestPropAndData.spec.js", () => {
+  let cmp;
+
+  beforeEach(() => {
+    cmp = shallowMount(TestPropsAndData);
+  })
   // Mô tả test case và chi tiết ntn
-  it("renders props.msg when passed", () => {
+  it("Ví dụ 1.renders props.msg when passed", () => {
     /**
     * Fake data, props có 2 cách:
     * + Fake qua Arguments {Object} options của mount() hoặc shallowMount()
@@ -29,12 +32,59 @@ describe("TestPropsAndData.vue", () => {
     */
     expect(wrapper.vm.msg).toBe('new message')
     expect(wrapper.vm.show).toBe(true)
-    // expect(wrapper.props().msg).toBe('new message')
-    // expect(wrapper.props('msg')).toBe('new message')
+
 
     // ------------------------Test thử giao diện có render ra msg nội dung là "'new message'" hay không----------------------------------------
-    let h = new UnitTestHelpers(wrapper, expect);
+    
     // assert
-    h.textContainInDOM("new message", ".hello");
+    let wrap = this.wrapper.find(".hello") ;
+      this.expect(wrap.html()).toContain("new message")
+
   });
+
+
+
+  describe("Properties", () => {
+    it("returns trả về chuỗi đã đảo ngược nếu reversed != true", () => {
+      cmp.setData({ inputValue: "Yoo" });
+      expect(cmp.vm.reversedInput).toBe("Yoo");
+    });
+
+    it("returns trả về chuỗi đã đảo ngược nếu reversed = true", async () => {
+      cmp.setData({ inputValue: "Yoo" });
+      await cmp.setProps({ reversed: true });
+      expect(cmp.vm.reversedInput).toBe("ooY");
+    });
+  });
+
+
+  describe('Watchers - inputValue', () => {
+    let spy
+
+    beforeAll(() => {
+      spy = jest.spyOn(console, 'log')
+    })
+
+    afterEach(() => {
+      spy.mockClear()
+    })
+
+    it('không được gọi nếu giá trị trống', () => {
+      cmp.setData({ inputValue: "   " });
+      expect(spy).not.toBeCalled();
+    })
+
+    it('không được gọi nếu các giá trị giống nhau', () => {
+      cmp = shallowMount(TestPropsAndData, {
+        data: () => ({ inputValue: "foo" })
+      });
+      cmp.setData({ inputValue: "foo" });
+      expect(spy).not.toBeCalled();
+    })
+
+    it('được gọi với giá trị mới trong các trường hợp khác',async () => { 
+      await cmp.setData({ inputValue: "foo" }); 
+      expect(spy).toBeCalled();
+    })
+  })
 });
