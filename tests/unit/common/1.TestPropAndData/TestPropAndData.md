@@ -1,7 +1,7 @@
 I. Props & Data 
 
 1. Mục tiêu
-- Test xem với giá trị truyền vào của Props hoặc giá trị khởi tạo của Deta thì Code có chạy đúng dự định không?
+- Test xem với giá trị truyền vào của Props hoặc giá trị khởi tạo của Data thì Code có chạy đúng dự định không?
 
 2. Phương pháp
 - B1: mount component với option truyển vào (prop hoặc data)

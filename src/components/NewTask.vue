@@ -1,12 +1,6 @@
 <template>
   <div class="wrap-input">
-    <input
-      data-test="input-task"
-      type="text"
-      class="input-task"
-      name="input-task"
-      v-model="newTaskText"
-    />
+    <MsInput :input="newTaskText" @valueChange="changeValueInput"></MsInput>
 
     <button class="wrap-button" data-test="add-task" @click="addNewTask()">
       Thêm mới
@@ -15,8 +9,11 @@
 </template>
 
 <script>
+import MsInput from "@/components/BaseComponent/MsInput.vue";
 export default {
   name: "TaskList",
+  components: { MsInput },
+
   data() {
     return {
       newTaskText: "",
@@ -24,11 +21,12 @@ export default {
   },
   methods: {
     addNewTask() {
+      // eslint-disable-next-line
       // check null value
       if (!this.checkIsNullTask()) {
         // this.unExist.Name = "Task";
         this.emitTask();
-        console.log("log láo");
+        // console.log("log láo");
       } else {
         this.inValidTask();
       }
@@ -40,9 +38,12 @@ export default {
       this.$emit("addNewTask", this.newTaskText);
       this.newTaskText = "";
     },
-    inValidTask(){
+    inValidTask() {
       this.newTaskText = "Task bị rỗng";
-    }
+    },
+    changeValueInput(e) {
+      this.newTaskText = e;
+    },
   },
 };
 </script>
