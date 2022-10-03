@@ -13,7 +13,7 @@ describe("TestThemCongViec Critical", () => {
     // console.log(wrapper.vm);
 
     //Set tên task mới là : write unit test
-    input.setValue("write unit test");
+    wrapper.vm.newTaskText = "write unit test"
     wrapper.find("button").trigger("click"); // lần đầu emit ra giá trị new task
 
   

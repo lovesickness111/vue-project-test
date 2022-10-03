@@ -39,4 +39,9 @@
         expect(posts.at(1).text()).toContain('bài viết số 02')
 
 
-4. Tương tự với các phương thức khác: xem tại file CallApiPostList.spec.js
+4. Tương tự với các phương thức khác: xem tại file CallApiPostListMock.spec.js
+5. Lưu ý: 
+- sau khi dùng xong mock chúng ta cần phải clear Mocks và Modules đi:
+          jest.resetModules();
+          jest.clearAllMocks();
+- Khi mock API cần phải dùng switch case theo URL (xem ví dụ 2)
